@@ -10,9 +10,7 @@ const Home = () => {
       setWidth(window.innerWidth)
     })
   }, [height, width])
-    window.addEventListener('resize', () => {
-        console.log(window.innerHeight);
-        console.log(window.innerWidth); 
+    window.addEventListener('resize', () => { 
         setWidth(window.innerWidth)
         setHeight(window.innerHeight)
     })
