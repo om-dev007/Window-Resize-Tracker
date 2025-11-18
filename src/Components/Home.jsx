@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react'
 
 const Home = () => {
-  const [height, setHeight] = useState('')
-  const [width, setWidth] = useState('')
+  const [height, setHeight] = useState(() => typeof window !== 'undefined' ? window.innerHeight : 0)
+  const [width, setWidth] = useState(() => typeof window !== 'undefined' ? window.innerWidth : 0)
 
   useEffect(() => {
-    window.addEventListener('load' , () => {
+    const update = () => {
       setHeight(window.innerHeight)
       setWidth(window.innerWidth)
-    })
-  }, [height, width])
+    }
+
+    update()
+    window.addEventListener('load', update)
+    window.addEventListener('resize', update)
+
+    return () => {
+      window.removeEventListener('load', update)
+    }
+  }, [])
     window.addEventListener('resize', () => { 
         setWidth(window.innerWidth)
         setHeight(window.innerHeight)
     })
   return (
-    <div className='text-black bg-white rounded-2xl p-5'>
+    <div className='text-black w-1/2 bg-white rounded-2xl p-5'>
       <div>
         <h1 className='text-5xl'>Window Resize Tracker</h1>
       </div>
