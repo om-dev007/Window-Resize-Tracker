@@ -23,13 +23,13 @@ const Home = () => {
         setHeight(window.innerHeight)
     })
   return (
-    <div className='text-black w-1/2 bg-white rounded-2xl p-5'>
+    <div className='text-black w-full bg-white rounded-2xl p-4 sm:p-5 flex flex-col justify-center items-center'>
       <div>
-        <h1 className='text-5xl'>Window Resize Tracker</h1>
+        <h1 className='text-3xl sm:text-5xl text-center'>Window Resize Tracker</h1>
       </div>
-      <div>
-        <h1 className='text-3xl font-semibold text-center'> Width : {width}px </h1>
-        <h1 className='text-3xl font-semibold text-center'> Height : {height}px </h1>
+      <div className='mt-4 flex flex-col sm:flex-row items-center justify-center gap-4'>
+        <h1 className='text-xl sm:text-3xl font-semibold text-center w-full sm:w-auto'> Width : {width}px </h1>
+        <h1 className='text-xl sm:text-3xl font-semibold text-center w-full sm:w-auto'> Height : {height}px </h1>
       </div>
     </div>
   )
